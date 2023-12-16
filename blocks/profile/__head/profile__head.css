@@ -1,0 +1,14 @@
+.profile__head {
+  margin: 22px 0 25px 30px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+@media screen and (max-width: 768px){
+  .profile__head {
+    text-align: center;
+    justify-content: center;
+    margin: 22px auto 0;
+    width: 282px;
+  }
+}

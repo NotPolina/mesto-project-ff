@@ -1,81 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="pages/index.css" rel="stylesheet" type="text/css">
+ <title>Mesto</title>
+ <script src="./scripts/index.js" defer></script>
 </head>
-<body class="page">
-<div class="page__content">
-  <header class="header page__section">
-    <img src="./images/logo.svg" alt="Логотип проекта масто" class="logo header__logo">
-  </header>
-  <main class="content">
-    <section class="profile page__section">
-      <div class="profile__image" style="background-image: url('./images/avatar.jpg');"></div>
-      <div class="profile__info">
-        <h1 class="profile__title">Жак-Ив Кусто</h1>
-        <button class="profile__edit-button" type="button"></button>
-        <p class="profile__description">Исследователь океана</p>
+<body>
+  <div class="page">
+    <header class="header">
+       <img class="header__logo" src="./images/logo.svg" alt="Место Россия">
+    </header>
+    <main class="content">
+       <section class="profile">
+        <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
+        <div class="profile__head">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"><img class="profile__pencil" src="./images/pencil.svg" alt="Редактор"></button>
+          <p class="profile__info">Исследователь океана</p>
+        </div>
+        <button class="profile__add-button" type="button">
+          <img class="profile__plus" src="./images/plus.svg" alt="Кнопка добавить">
+        </button>
+       </section>
+       <section class="elements">
+        <template id="cards" class="element__template">
+          <li class="element">
+            <img class="element__item">
+            <button class="element__trash" type="button">
+              <img class="element__trash-button" src="./images/Trash.svg" alt="Delete">
+            </button>
+            <div class="element__info">
+              <h2 class="element__title"></h2>
+              <button class="element__like" type="button">
+                <img class="element__like-heart" src="./images/like.svg" alt="Лайк">
+              </button>
+            </div>
+          </li>
+          </template>
+       </section>
+    </main>  
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2023 Popova Polina</p>
+    </footer>
+    <div class="popup popup_edit">
+      <div class="popup__container">
+        <button type="button" class="popup__button-close"></button>
+        <form name="profile" class="popup__form">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <fieldset class="popup__input-wrapper">
+              <input type="text" name="name" class="popup__input popup__input_name_value" placeholder="Name">
+              <input type="text" name="info" class="popup__input popup__input_info_value" placeholder="Info">
+          </fieldset>
+          <button type="submit" class="popup__button-save">Сохранить</button>
+        </form>
       </div>
-      <button class="profile__add-button" type="button"></button>
-    </section>
-    <section class="places page__section">
-      <ul class="places__list">
-      </ul>
-    </section>
-  </main>
-  <footer class="footer page__section">
-    <p class="footer__copyright">
-      © 2021 Mesto Russia
-    </p>
-  </footer>
-  <div class="popup popup_type_edit">
-    <div class="popup__content">
-      <button type="button" class="popup__close"></button>
-      <h3 class="popup__title">Редактировать профиль</h3>
-      <form class="popup__form" name="edit-profile">
-        <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Имя" required>
-        <input type="text" name="description" class="popup__input popup__input_type_description" placeholder="Занятие" required>
-        <button type="submit" class="button popup__button">Сохранить</button>
-      </form>
     </div>
-  </div>
-  <div class="popup popup_type_new-card">
-    <div class="popup__content">
-      <button type="button" class="popup__close"></button>
-      <h3 class="popup__title">Новое место</h3>
-      <form class="popup__form" name="new-place">
-        <input type="text" name="place-name" class="popup__input popup__input_type_card-name" placeholder="Название" required>
-        <input type="url" name="link" class="popup__input popup__input_type_url" placeholder="Ссылка на картинку" required>
-        <button type="submit" class="button popup__button">Сохранить</button>
-      </form>
+    <div class="popup popup_cards">
+      <div class="popup__container">
+        <button type="button" class="popup__button-close-cards"></button>
+        <form name="profile" class="popup__form-element">
+          <h2 class="popup__title">Новое место</h2>
+          <fieldset class="popup__input-wrapper">
+              <input type="text" name="place" class="popup__input popup__input_place_value" placeholder="Place">
+              <input type="text" name="link" class="popup__input popup__input_link_value" placeholder="Link">
+          </fieldset>
+          <button type="submit" class="popup__button-save">Создать</button>
+        </form>
+      </div>
     </div>
-  </div>
-  <div class="popup popup_type_image">
-    <div class="popup__content popup__content_content_image">
-      <button type="button" class="popup__close"></button>
-      <img src="" alt="" class="popup__image">
-      <p class="popup__caption"></p>
+    <div class="popup popup_image">
+      <div class="popup__container-image">
+        <button type="button" class="popup__button-close-image"></button>
+        <img class="popup__big-image">
+        <h2 class="popup__title-big-image"></h2>
+      </div>
     </div>
-  </div>
 </div>
-<script src="./scripts/cards.js"></script>
-<script src="./scripts/index.js" defer></script>
-
-<template id="card-template">
-  <li class="places__item card">
-    <img class="card__image" src="" alt="" />
-    <button type="button" class="card__delete-button"></button>
-    <div class="card__description">
-      <h2 class="card__title">
-      </h2>
-      <button type="button" class="card__like-button"></button>
-    </div>
-  </li>
-</template>
 </body>
 </html>
