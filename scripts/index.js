@@ -35,9 +35,8 @@ function closePopup(popup) {
 }
 
 //Попап редактирования профиля
-const popup = document.querySelector('.popup');
-const formElementProfile = popup.querySelector('.popup__form');
 const popupEdit = document.querySelector('.popup_edit');
+const formElementProfile = popupEdit.querySelector('.popup__form');
 
 const buttonProfilePopupOpen = document.querySelector('.profile__edit-button');
 const buttonPopupClose = document.querySelector('.popup__button-close');
@@ -48,7 +47,7 @@ const jobInput = document.querySelector('.popup__input_info_value');
 const profileName = document.querySelector('.profile__name');
 const profileInfo = document.querySelector('.profile__info');
 
-function handleFormSubmit (evt) {
+function handleSubmitProfileForm (evt) {
     evt.preventDefault(); 
 
     const nameValue = nameInput.value;
@@ -71,7 +70,7 @@ buttonProfilePopupOpen.addEventListener('click', openEditPopup);
 buttonPopupClose.addEventListener('click', function () {
   closePopup(popupEdit);
 });  
-formElementProfile.addEventListener('submit', handleFormSubmit);
+formElementProfile.addEventListener('submit', handleSubmitProfileForm);
 
 //Попап добавления карточки
 const formElementCards = document.querySelector('.popup__form-element');
