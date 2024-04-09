@@ -3,25 +3,23 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link href="pages/index.css" rel="stylesheet" type="text/css">
  <title>Mesto</title>
- <script src="./scripts/index.js" defer></script>
 </head>
 <body class="body">
   <div class="page">
     <header class="header">
-       <img class="header__logo" src="./images/logo.svg" alt="Место Россия">
+       <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Место Россия">
     </header>
     <main class="content">
        <section class="profile">
-        <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
+        <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
         <div class="profile__head">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button" type="button"><img class="profile__pencil" src="./images/pencil.svg" alt="Редактор"></button>
+          <button class="profile__edit-button" type="button"><img class="profile__pencil" src="<%=require('./images/pencil.svg')%>" alt="Редактор"></button>
           <p class="profile__info">Исследователь океана</p>
         </div>
         <button class="profile__add-button" type="button">
-          <img class="profile__plus" src="./images/plus.svg" alt="Кнопка добавить">
+          <img class="profile__plus" src="<%=require('./images/plus.svg')%>" alt="Кнопка добавить">
         </button>
        </section>
        <section class="elements">
@@ -29,12 +27,12 @@
           <li class="element">
             <img class="element__item">
             <button class="element__trash" type="button">
-              <img class="element__trash-button" src="./images/Trash.svg" alt="Delete">
+              <img class="element__trash-button" src="<%=require('./images/Trash.svg')%>" alt="Delete">
             </button>
             <div class="element__info">
               <h2 class="element__title"></h2>
               <button class="element__like" type="button">
-                <img class="element__like-heart" src="./images/like.svg" alt="Лайк">
+                <img class="element__like-heart" src="<%=require('./images/like.svg')%>" alt="Лайк">
               </button>
             </div>
           </li>

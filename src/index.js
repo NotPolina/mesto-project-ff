@@ -1,3 +1,7 @@
+import * as Styles from './index.css'; 
+import { cardTemplate, elements, createCard} from './cards.js';
+import { openPopup, closePopup, closePopupEsc, closePopupOverlay} from './modal.js';
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -25,32 +29,6 @@ const initialCards = [
   }
 ];
 
-//Общие функции
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  popup.addEventListener('click', closePopupOverlay);
-  document.addEventListener('keydown', closePopupEsc);
-}
-
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  popup.removeEventListener('click', closePopupOverlay);
-  document.removeEventListener('keydown', closePopupEsc);
-}
-
-function closePopupEsc(evt) {
-  if (evt.key === "Escape") {
-    const popupOpened = document.querySelector('.popup_opened');
-    closePopup(popupOpened);
-  }
-}
-
-function closePopupOverlay(evt) {
-  if (evt.currentTarget === evt.target) {
-    const popupOpened = document.querySelector('.popup_opened');
-    closePopup(popupOpened)
-  }
-}
 
 //Попап редактирования профиля
 const popupEdit = document.querySelector('.popup_edit');
@@ -123,32 +101,6 @@ buttonCardsPopupClose.addEventListener('click', function () {
 });  
 formElementCards.addEventListener('submit', handleAddCards);
 
-const cardTemplate = document.querySelector('#cards').content
-const elements = document.querySelector('.elements')
-
-const createCard = (link, name,) => {
-  const card = cardTemplate.querySelector('.element').cloneNode(true)
-  card.querySelector('.element__item').src = link
-  card.querySelector('.element__item').alt = name
-  card.querySelector('.element__title').textContent = name
-  
-  card.querySelector('.element__like').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__like_active')
-  });
-
-  card.querySelector('.element__trash').addEventListener('click', () => {
-    card.remove()
-  })
-
-  card.querySelector('.element__item').addEventListener('click', () => {
-    textImage.textContent = name;
-    bigImage.src = link;
-    bigImage.alt = name;
-    openPopup(popupImage);
-  });
-
-  return card
-}
 
 const renderCard = (placeValue, linkValue) => {
   const newCard = createCard(linkValue, placeValue);
@@ -160,11 +112,11 @@ initialCards.forEach((card) => {
 })
 
 //Попап просмотра фотографии
-const popupImage = document.querySelector('.popup_image');
+export const popupImage = document.querySelector('.popup_image');
 const buttonImagePopupClose = document.querySelector('.popup__button-close-image');
 
-const bigImage = document.querySelector('.popup__big-image');
-const textImage = document.querySelector('.popup__title-big-image');
+export const bigImage = document.querySelector('.popup__big-image');
+export const textImage = document.querySelector('.popup__title-big-image');
 
 buttonImagePopupClose.addEventListener('click', function () {
   closePopup(popupImage);
